@@ -1,6 +1,6 @@
 pipeline {
 
-  agent { label 'stage'}
+  agent { lable 'stage'}
 
   tools {
     jdk 'Java11'
