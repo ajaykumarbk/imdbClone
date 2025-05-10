@@ -13,7 +13,23 @@ pipeline {
         cleanWs()
       }
     }
-  
-    
+
+    stage("Checkout from SCM"){
+      steps{
+        git branch: 'main', credentialsId: 'github', url: 'https://github.com/ajaykumarbk/imdbClone.git'
+      }
+    }
+
+    stage("Build application"){
+      steps{
+       sh 'mvn clean package'
+      }
+    }
+
+    stage("Test application"){
+      steps{
+       sh 'mvn test'
+      }
+    }
   }
 }
